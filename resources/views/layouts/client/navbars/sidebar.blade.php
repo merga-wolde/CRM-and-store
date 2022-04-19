@@ -5,9 +5,9 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
-        <a class="navbar-brand pt-0" href="{{ route('admin.dashboard') }}">
-            <h1 style="color: rgb(92, 102, 238)">Admin CRM</h1> 
-            
+        <a class="navbar-brand pt-0" href="{{ route('client.dashboard') }}">
+            <h1 style="color: rgb(92, 102, 238)">Store CRM</h1> 
+            {{-- <img src="{{ asset('argon') }}/img/brand/blue.png" class="navbar-brand-img" alt="..."> --}}
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -15,7 +15,7 @@
                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">
-                        
+                        {{-- <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-1-800x800.jpg"> --}}
                        
                     </span>
                     </div>
@@ -28,7 +28,7 @@
                         <i class="ni ni-single-02"></i>
                         <span>{{ __('My profile') }}</span>
                     </a>
-              
+                   
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
@@ -44,8 +44,8 @@
             <div class="navbar-collapse-header d-md-none">
                 <div class="row">
                     <div class="col-6 collapse-brand">
-                        <a href="{{ route('admin.dashboard') }}">
-                            <h1 style="color: rgb(92, 102, 238)">Admin CRM</h1>
+                        <a href="{{ route('home') }}">
+                            <h1 style="color: rgb(92, 102, 238)">Store CRM</h1>
                         </a>
                     </div>
                     <div class="col-6 collapse-close">
@@ -70,26 +70,52 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.dashboard') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
+                    <a class="nav-link" href="/client/dashboard">
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Store Dashboard') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
-                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Display Users') }}</span>
+                    <a class="nav-link active" href="#navbar-examples1" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples1">
+                        <span class="glyphicon glyphicon-th-list">
+                        <span class="nav-link-text" style="color: #141212;">{{ __('Manage Products') }}</span>
                     </a>
-
-                    <div class="collapse show" id="navbar-examples">
+                    
+                    <div class="collapse show" id="navbar-examples1">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.dashboard') }}">
-                                    {{ __('Store Users') }}
+                                <a class="nav-link" href="{{ route('client.products') }}">
+                                    <span class="nav-link-text" style="color: #141212;"> {{ __('Add Products') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{  route('admin.admins') }}">
-                                    {{ __('Admin Users') }}
+                                
+                                <a class="nav-link" href="{{ route('client.displayproducts') }}">
+                                    <span class="nav-link-text" style="color: #141212;"> {{ __('Display Products') }}
+                                </a>
+                            </li>
+                           
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="#navbar-examples2" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples2">
+                        <span class="glyphicon glyphicon-th-list">
+                        <span class="nav-link-text" style="color: #141212;">{{ __('Manage Category') }}</span>
+                    </a>
+                    
+                    <div class="collapse show" id="navbar-examples2">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                
+                                <a class="nav-link" href="{{ route('client.category') }}">
+                                    <span class="nav-link-text" style="color: #141212;"> {{ __('Add category') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                
+                                <a class="nav-link" href="{{ route('client.displaycategory') }}">
+                                    <span class="nav-link-text" style="color: #141212;"> {{ __('Display category') }}
                                 </a>
                             </li>
                         </ul>
@@ -97,20 +123,20 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Icons') }}
+                    <a class="nav-link" href="{{ route('profile.edit') }}">
+                        <i class="ni ni-circle-08 text-pink"></i>{{ __('User profile') }}
                     </a>
                 </li>
-          
+                </li>
+               
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('client.index') }}">
                         <i class="ni ni-circle-08 text-pink"></i> {{ __('Register') }}
                     </a>
                 </li>
            
             </ul>
-            <!-- Divider -->
-            
+           
         </div>
     </div>
 </nav>

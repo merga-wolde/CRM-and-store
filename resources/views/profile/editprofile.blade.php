@@ -59,7 +59,7 @@
                                 <i class="ni education_hat mr-2"></i>{{ __('University of Computer Science') }}
                             </div>
                             <hr class="my-4" />
-                            <p>{{ __('Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.') }}</p>
+                            <p>{{ __('auth()->user()->name — Store for a better services.') }}</p>
                             <a href="#">{{ __('Show more') }}</a>
                         </div>
                     </div>

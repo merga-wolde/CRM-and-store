@@ -5,7 +5,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'CRM') }}</title>
+    <title>{{ config('app.name', 'Argon Dashboard') }}</title>
     <!-- Favicon -->
     <link href="{{ asset('argon') }}/img/brand/favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->
@@ -108,7 +108,7 @@
             <li class="nav-item">
                 <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                     <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                    <span class="nav-link-text" style="color: #f4645f;">Display Users</span>
+                    <span class="nav-link-text" style="color: #f4645f;">Display users</span>
                 </a>
 
                 <div class="collapse show" id="navbar-examples">
@@ -131,17 +131,7 @@
                 <a class="nav-link" href="#">
                     <i class="ni ni-planet text-blue"></i> Icons
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="ni ni-pin-3 text-orange"></i> Maps
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="ni ni-key-25 text-info"></i> Login
-                </a>
-            </li>
+           
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="ni ni-circle-08 text-pink"></i> Register
@@ -149,7 +139,8 @@
             </li>
            
         </ul>
-  
+        <!-- Divider -->
+        
     </div>
 </div>
 </nav>                
@@ -215,25 +206,20 @@
 </div>
 </nav>    
 <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
-    <div class="container-fluid">
+<div class="container-fluid">
 
     
 </div>
 </div>
-
-
 <div class="container-fluid mt--7">
     <div class="row">
-        
         <div class="col">
             @include('layouts.message')
-                
             <div class="card shadow">
-               
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h3 class="mb-0">Store clients</h3>
+                            <h3 class="mb-0">Admin Users</h3>
                         </div>
                         <div class="col-4 text-right">
                             <a href="{{ route('admin.register') }}" class="btn btn-sm btn-primary">Register Admin</a>
@@ -275,8 +261,8 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="">Deactivate</a>
-                                                <a class="dropdown-item btn btn-danger" href="/admin/{{ $user->id }}/delete">delete</a>
+                                               <a class="dropdown-item" href="/admin/{{ $user->id }}/edit">Edit</a>
+                                               <a class="dropdown-item btn btn-danger" href="/admin/{{ $user->id }}/deleteadmin">delete</a>
                                             </div>
                                         </div>
                                     </td>
@@ -286,7 +272,7 @@
                                     <h1>no user found</h1>
                                 @endif
                                 
-                                                        </tbody>
+                        </tbody>
                     </table>
                 </div>
                 <div class="card-footer py-4">
@@ -321,7 +307,7 @@
             </ul>
             </div>
         </div>
-</footer>  
+    </footer>  
 </div>
 </div>
 

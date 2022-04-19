@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('User Profile')])
+@extends('layouts.client.app', ['title' => __('User Profile')])
 
 @section('content')
     @include('users.partials.header', [
@@ -17,6 +17,8 @@
                                 {{-- <a href="#">
                                     <img src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg" class="rounded-circle">
                                 </a> --}}
+                                {{-- {{ asset('storage/app/'.auth()->user()->logo) }} --}}
+                                <img class="form-logo" src="{{ asset('storage/app/'.auth()->user()->logo) }}" alt="Store Logo">
                             </div>
                         </div>
                     </div>
@@ -30,36 +32,21 @@
                         <div class="row">
                             <div class="col">
                                 <div class="card-profile-stats d-flex justify-content-center mt-md-5">
-                                    <div>
-                                        <span class="heading">22</span>
-                                        <span class="description">{{ __('Friends') }}</span>
-                                    </div>
-                                    <div>
-                                        <span class="heading">10</span>
-                                        <span class="description">{{ __('Photos') }}</span>
-                                    </div>
-                                    <div>
-                                        <span class="heading">89</span>
-                                        <span class="description">{{ __('Comments') }}</span>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
                         <div class="text-center">
                             <h3>
-                                {{ auth()->user()->name }}<span class="font-weight-light">, 27</span>
+                                {{ auth()->user()->name }}<span class="font-weight-light">, </span>
                             </h3>
-                            <div class="h5 font-weight-300">
-                                <i class="ni location_pin mr-2"></i>{{ __('Bucharest, Romania') }}
-                            </div>
-                            <div class="h5 mt-4">
-                                <i class="ni business_briefcase-24 mr-2"></i>{{ __('Solution Manager - Creative Tim Officer') }}
-                            </div>
-                            <div>
-                                <i class="ni education_hat mr-2"></i>{{ __('University of Computer Science') }}
-                            </div>
+                            <h3>
+                                {{ auth()->user()->email }}<span class="font-weight-light">, </span>
+                            </h3>
+                            
+                            
                             <hr class="my-4" />
-                            <p>{{ __('Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.') }}</p>
+                            <p>{{ __(auth()->user()->name.' — Store for a better services.')  }}</p>
                             <a href="#">{{ __('Show more') }}</a>
                         </div>
                     </div>
@@ -73,7 +60,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('profile.update') }}" autocomplete="off">
+                        <form enctype="multipart/form-data" method="post" action="{{ route('profile.update') }}" autocomplete="off">
                             @csrf
                             @method('put')
 
@@ -99,6 +86,19 @@
                                         </span>
                                     @endif
                                 </div>
+
+                                <div class="pl-lg-4">
+                                    <div class="form-group{{ $errors->has('image') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-name">{{ __('Logo') }}</label>
+                                        {{-- <input type="text" name="name" id="input-name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> --}}
+                                        <input class="form-control{{ $errors->has('image') ? ' is-invalid' : '' }}" placeholder="{{ __('Logo image') }}" type="file" name="logo" required autofocus>
+                                        @if ($errors->has('image'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('image') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+
                                 <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-email">{{ __('Email') }}</label>
                                     <input type="email" name="email" id="input-email" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="{{ old('email', auth()->user()->email) }}" required>
@@ -167,6 +167,6 @@
             </div>
         </div>
         
-        @include('layouts.footers.auth')
-    </div>
+        
+    </div>@include('layouts.client.footers.auth')
 @endsection

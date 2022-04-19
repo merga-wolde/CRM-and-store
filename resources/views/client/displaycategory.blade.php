@@ -5,7 +5,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'CRM') }}</title>
+    <title>{{ config('app.name', 'Argon Dashboard') }}</title>
     <!-- Favicon -->
     <link href="{{ asset('argon') }}/img/brand/favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->
@@ -27,17 +27,17 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Brand -->
-    <a class="navbar-brand pt-0" href="{{ route('admin.dashboard') }}">
-        <h1 style="color: rgb(92, 102, 238)">Admin CRM</h1> 
+    <a class="navbar-brand pt-0" href="{{ route('client.dashboard') }}">
+        <h1 style="color: rgb(92, 102, 238)">Store CRM</h1> 
     </a>
     <!-- User -->
     <ul class="nav align-items-center d-md-none">
         <li class="nav-item dropdown">
             <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media align-items-center">
-                    <span class="avatar avatar-sm rounded-circle">
+                    {{-- <span class="avatar avatar-sm rounded-circle">
                     <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/teamm-1-800x800.jpg">
-                    </span>
+                    </span> --}}
                 </div>
             </a>
             <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
@@ -75,8 +75,8 @@
         <div class="navbar-collapse-header d-md-none">
             <div class="row">
                 <div class="col-6 collapse-brand">
-                    <a  href="{{ route('admin.dashboard') }}">
-                        <h1 style="color: blue">Admin Store</h1>
+                    <a  href="{{ route('client.dashboard') }}">
+                        <h1 style="color: blue">Store Store</h1>
                     </a>
                 </div>
                 <div class="col-6 collapse-close">
@@ -101,47 +101,62 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                <a class="nav-link" href="{{ route('client.dashboard') }}">
                     <i class="ni ni-tv-2 text-primary"></i> Dashboard
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                    <span class="nav-link-text" style="color: #f4645f;">Display Users</span>
+                <a class="nav-link active" href="#navbar-examples1" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples1">
+                    <span class="glyphicon glyphicon-th-list">
+                    <span class="nav-link-text" style="color: #141212;">{{ __('Manage Products') }}</span>
                 </a>
-
-                <div class="collapse show" id="navbar-examples">
+                
+                <div class="collapse show" id="navbar-examples1">
                     <ul class="nav nav-sm flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.dashboard') }}">
-                                Store Users
+                            <a class="nav-link" href="{{ route('client.products') }}">
+                                <span class="nav-link-text" style="color: #141212;"> {{ __('Add Products') }}
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.admins') }}">
-                                Admin Users
+                            
+                            <a class="nav-link" href="{{ route('client.displayproducts') }}">
+                                <span class="nav-link-text" style="color: #141212;"> {{ __('Display Products') }}
                             </a>
                         </li>
+                       
                     </ul>
                 </div>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="ni ni-planet text-blue"></i> Icons
+                <a class="nav-link active" href="#navbar-examples2" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples2">
+                    <span class="glyphicon glyphicon-th-list">
+                    <span class="nav-link-text" style="color: #141212;">{{ __('Manage Category') }}</span>
                 </a>
+                
+                <div class="collapse show" id="navbar-examples2">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            
+                            <a class="nav-link" href="{{ route('client.category') }}">
+                                <span class="nav-link-text" style="color: #141212;"> {{ __('Add category') }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            
+                            <a class="nav-link" href="{{ route('client.displaycategory') }}">
+                                <span class="nav-link-text" style="color: #141212;"> {{ __('Display category') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="ni ni-pin-3 text-orange"></i> Maps
+                <a class="nav-link" href="{{ route('profile.edit') }}">
+                    <i class="ni ni-circle-08 text-pink"></i>{{ __('User profile') }}
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="ni ni-key-25 text-info"></i> Login
-                </a>
-            </li>
+           
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="ni ni-circle-08 text-pink"></i> Register
@@ -149,7 +164,8 @@
             </li>
            
         </ul>
-  
+        <!-- Divider -->
+        
     </div>
 </div>
 </nav>                
@@ -158,7 +174,7 @@
 <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
 <div class="container-fluid">
     <!-- Brand -->
-    <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('admin.dashboard') }}">Dashboard</a>
+    <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('client.dashboard') }}">Dashboard</a>
     <!-- Form -->
     <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
         <div class="form-group mb-0">
@@ -215,29 +231,24 @@
 </div>
 </nav>    
 <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
-    <div class="container-fluid">
+<div class="container-fluid">
 
     
 </div>
 </div>
-
-
 <div class="container-fluid mt--7">
     <div class="row">
-        
         <div class="col">
             @include('layouts.message')
-                
             <div class="card shadow">
-               
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h3 class="mb-0">Store clients</h3>
+                            <h3 class="mb-0">Displaying categories</h3>
                         </div>
-                        <div class="col-4 text-right">
-                            <a href="{{ route('admin.register') }}" class="btn btn-sm btn-primary">Register Admin</a>
-                        </div>
+                        {{-- <div class="col-4 text-right">
+                            <a href="{{ route('client.register') }}" class="btn btn-sm btn-primary">Register client</a>
+                        </div> --}}
                     </div>
                 </div>
                 
@@ -248,37 +259,26 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Creation Date</th>
-                                <th scope="col"></th>
+                                <th scope="col">Product Category</th>
+                                <th scope="col">Created on</th>
+                                <th scope="col">Edit</th>
                             </tr>
                         </thead>
                         <tbody>
                              
-                           @if(count($users)>0)
-                            @foreach ($users as $user)
+                           @if(count($category)>0)
+                            @foreach ($category as $category)
                                 
                             
                                 <tr>
                                    
 
-                                    <td>{{ $user->name }}</td>
-                                    <td>
-                                        <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
-                                        
-                                    </td>
-                                    <td>{{ $user->created_at }}</td>
+                                    <td>{{ $category->category }}</td>
+                                   
+                                    <td>{{ $category->created_at }}</td>
                                     <td class="text-right">
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="">Deactivate</a>
-                                                <a class="dropdown-item btn btn-danger" href="/admin/{{ $user->id }}/delete">delete</a>
-                                            </div>
-                                        </div>
+                                        <a class="btn btn-success" href="/client/{{ $category->id }}/editcategory">Edit</a>
+                                        <a class="btn btn-danger" href="/client/{{ $category->id }}/deletecategory">Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -286,7 +286,7 @@
                                     <h1>no user found</h1>
                                 @endif
                                 
-                                                        </tbody>
+                        </tbody>
                     </table>
                 </div>
                 <div class="card-footer py-4">
@@ -302,13 +302,13 @@
         <div class="row align-items-center justify-content-xl-between">
         <div class="col-xl-6">
             <div class="copyright text-center text-xl-left text-muted">
-                © 2022 <a href="#" class="font-weight-bold ml-1" target="_blank">CRM Admin</a>
+                © 2022 <a href="#" class="font-weight-bold ml-1" target="_blank">CRM Store</a>
             </div>
         </div>
         <div class="col-xl-6">
             <ul class="nav nav-footer justify-content-center justify-content-xl-end">
                 <li class="nav-item">
-                    <a href="#" class="nav-link" target="_blank">CRM Admin</a>
+                    <a href="#" class="nav-link" target="_blank">CRM Store</a>
                 </li>
                
                 <li class="nav-item">
@@ -321,7 +321,7 @@
             </ul>
             </div>
         </div>
-</footer>  
+    </footer>  
 </div>
 </div>
 

@@ -23,16 +23,16 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-            @include('layouts.navbars.sidebar')
+            @include('layouts.client.navbars.sidebar')
         @endauth
         
         <div class="main-content">
-            @include('layouts.navbars.navbar')
+            @include('layouts.client.navbars.navbar')
             @yield('content')
         </div>
 
         @guest()
-            @include('layouts.footers.guest')
+            @include('layouts.client.footers.guest')
         @endguest
 
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
