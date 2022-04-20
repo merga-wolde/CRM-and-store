@@ -157,11 +157,11 @@
                     <i class="ni ni-circle-08 text-pink"></i>{{ __('User profile') }}
                 </a>
            
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="ni ni-circle-08 text-pink"></i> Register
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('client.index') }}">
+                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Front Store') }}
+                    </a>
+                </li>
            
         </ul>
         <!-- Divider -->

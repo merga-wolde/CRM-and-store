@@ -8,6 +8,7 @@ use App\User;
 use App\Category;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Paginator;
 
 class ProductController extends Controller
 {
@@ -19,7 +20,8 @@ class ProductController extends Controller
     public function index()
     {
         //$products = DB::table('products')->get();
-        $products = DB::table('products')->where('store_id', auth()->user()->id)->get();        
+        $products = DB::table('products')->where('store_id', auth()->user()->id)->paginate(5);       
+
         return view('client.displayproducts', compact('products'));
     }
 
@@ -96,7 +98,13 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view("client.edit")->with('product', $product);
+        $category = DB::table('categories')->where('store_id', auth()->user()->id)->get(); 
+        $products= [
+            'product'=>$product,
+            'category'=> $category,
+        ];
+        
+        return view("client.edit")->with($products);
     }
 
     /**
@@ -120,12 +128,14 @@ class ProductController extends Controller
         
         $filepath = $request->file('product_image')->store('public/images');
         if ($filepath) {
+            $path = explode('/',$filepath);
+            $file = end($path);
             $product_name = $request->input('product_name');
             $product_description = $request->input('product_description');
             $product_quantity = $request->input('product_quantity');
             $product_price_per_unit = $request->input('product_price_per_unit');
             $product_category = $request->input('product_category');
-            $product_image = $filepath;
+            $product_image = $file;
             $product_active = 1;
             
             //$product= Product::where('id', $id)->update($products);

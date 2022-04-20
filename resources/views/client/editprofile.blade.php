@@ -18,7 +18,9 @@
                                     <img src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg" class="rounded-circle">
                                 </a> --}}
                                 {{-- {{ asset('storage/app/'.auth()->user()->logo) }} --}}
-                                <img class="form-logo" src="{{ asset('storage/app/'.auth()->user()->logo) }}" alt="Store Logo">
+                               
+                                <img class="form-logo" src="{{ asset('storage/images/'.auth()->user()->logo) }}" alt="Store Logo">
+                                {{-- /storage/app/{{auth()->user()->logo}} --}}
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Store Front</title>
+    <title>Client CRM</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -82,7 +82,6 @@
                         @if (count($category))
                         @foreach ($category as $item)
                         <form action="{{ route('client.showcategory') }}" method="post"></form>
-                        @csrf
                         <input type="hidden" name="category" value="{{ $item-> category }}">
                         <button type="submit" class="nav-item nav-link">{{ $item-> category}}</button>
                         @endforeach
@@ -95,7 +94,7 @@
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                     <a href="" class="text-decoration-none d-block d-lg-none">
-                        <h3 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">{{ auth()->user()->name }}-STORE</span></h3>
+                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
                     </a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
@@ -183,7 +182,6 @@
                                 <form action="{{ route('client.shopcart') }}" method="post">
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product[$i]-> id }}">
-                                    <br>
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
                                         <div class="input-group-btn">
                                             <button class="btn btn-sm btn-primary btn-minus" >

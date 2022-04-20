@@ -8,6 +8,7 @@ use App\http\Controllers\ManageClient;
 use App\http\Controllers\CategoryController;
 use App\http\Controllers\ProductController;
 use App\http\Controllers\FrontController;
+use App\http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -73,4 +74,12 @@ Route::group(['prefix'=>'client','middleware' => ['isClient','auth', 'PreventBac
 	Route::get('displayproducts', [ProductController::class, 'index'])->name('client.displayproducts');
 	Route::get('/displaycategory', [CategoryController::class, 'index'])->name('client.displaycategory');
 	Route::get('/index', [FrontController::class, 'index'])->name('client.index');
+
+	
+	Route::get('/cart', [FrontController::class, 'create'])->name('client.cart');
+	Route::post('/shopcart', [CartController::class, 'store'])->name('client.shopcart');
+	Route::get('/checkout', [FrontController::class, 'checkout'])->name('client.checkout');
+	Route::post('/addpayement', [FrontController::class, 'store'])->name('client.addpayement');
+	Route::post('/showcategory', [FrontController::class, 'show'])->name('client.showcategory');
+
 });

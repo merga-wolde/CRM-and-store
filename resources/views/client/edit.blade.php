@@ -57,9 +57,13 @@
                                                     </div>
                                                     <select name="product_category" class="form-select" aria-label="Default select example form-control{{ $errors->has('category') ? ' is-invalid' : '' }}">
                                                         <option selected>{{ $product->product_category }}</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                        @if (count($category))
+                                                            @foreach ($category as $item)
+                                                                <option value="{{ $item-> category}}">{{ $item-> category}}</option>
+                                                            @endforeach
+                                                        
+                                                        @endif
+                                                       
                                                       </select>
                                                     {{-- <input class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" placeholder="{{ __('Product Description') }}" type="textarea" name="product_description" value="{{ old('product Description') }}" required autofocus> --}}
                                                </div> 

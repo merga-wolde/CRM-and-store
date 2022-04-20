@@ -3,8 +3,8 @@
 @else
     @extends('layouts.app', ['class' => 'bg-default'])
 @endif --}}
-
-@switch(auth()->user()->role)
+@extends('layouts.client.app', ['class' => 'bg-default'])
+{{-- @switch(auth()->user()->role)
     @case(1)
         @extends('layouts.client.app', ['class' => 'bg-default'])
         @break
@@ -13,8 +13,8 @@
         @extends('layouts.app', ['class' => 'bg-default'])  
         @break
     @default
-        <h1>no way</h1>
-@endswitch
+    @extends('layouts.app', ['class' => 'bg-default'])
+@endswitch --}}
 @section('content')
     <div class="header bg-gradient-primary py-7 py-lg-8">
         <div class="container">

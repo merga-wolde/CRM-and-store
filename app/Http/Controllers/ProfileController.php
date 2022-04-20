@@ -38,11 +38,13 @@ class ProfileController extends Controller
         $filepath = $request->file('logo')->store('public/images');
         
         if ($filepath) {
+            $path = explode('/',$filepath);
+            $file = end($path);
         $update = [
             'id' => $id,
             'name' => $name,
             'email' => $email,
-            'logo' => $filepath,
+            'logo' => $file,
            
         ];
         $updated = User::where('id', $id)->update($update);
