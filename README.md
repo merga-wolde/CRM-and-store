@@ -2,28 +2,34 @@
 
 <p align="center">This project have the following parts
 <ul>
-<li><h2>Admin</h2></li>
-<li><h2>Store Clients</h2</li>
-<li><h2>Front Page</h2</li>
+<li><h3>Admin</h3></li>
+<li><h3>Store Clients</h3</li>
+<li><h3>Front Page</h3</li>
 </ul>
 </p>
 
 ## About this project
 <h3>so, the <strong>Admin</strong> has the following functionalities</h3>
-● Login and Register
-● manages the cllient stores
-● can add other admins too.
-<h3>so, the <strong>client CRM</strong> has the following functionalities</h3>
-● Login and Register
-● crud products (adding, updating, displaying and deleting of products)
-● crud category (adding, updating, displaying and deleting of Category)
-● Managing order (viewing and changing status of order)
+<ul> 
+<li>Login and Register</li>
+<li>manages the cllient stores </li>
+<li>can add other admins too.</li> 
 
+</ul>
+<h3>so, the <strong>client CRM</strong> has the following functionalities</h3>
+<ul>
+<li>Login and Register</li>
+<li>crud products (adding, updating, displaying and deleting of products)</li>
+<li>crud category (adding, updating, displaying and deleting of Category)</li>
+<li>Managing order (viewing and changing status of order)</li>
+</ul>
 <h3>so, the <strong>Front Page</strong> has the following functionalities</h3>
-● Each registered store client will have this page.(mutually they will have similar header, content, footer)
-● has product listing
-● has category listing
-● has minicart, cartpage and checkout pages.
+<ul>
+<li>Each registered store client will have this page.(mutually they will have similar header, content, footer)</li>
+<li>has product listing</li>
+<li>has category listing</li>
+<li>has minicart, cartpage and checkout pages.</li>
+ 
 
 
 
