@@ -26,10 +26,7 @@
                                 <a href="{{ route('register') }}">{{ __('Create new account') }}</a> {{ __('OR Sign in with these credentials:') }}
                             </small>
                             <br>
-                            <small>
-                                {{ __('Username') }} <strong>admin@argon.com</strong>
-                                {{ __('Password') }} <strong>secret</strong>
-                            </small>
+                            
                         </div>
                         <form role="form" method="POST" action="{{ route('login') }}">
                             @csrf

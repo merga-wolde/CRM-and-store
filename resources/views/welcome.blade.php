@@ -1,20 +1,6 @@
-{{-- @if (auth()->user()->role === 2)
-    @extends('layouts.client.app', ['class' => 'bg-default'])
-@else
-    @extends('layouts.app', ['class' => 'bg-default'])
-@endif --}}
+
 @extends('layouts.client.app', ['class' => 'bg-default'])
-{{-- @switch(auth()->user()->role)
-    @case(1)
-        @extends('layouts.client.app', ['class' => 'bg-default'])
-        @break
- 
-    @case(2)
-        @extends('layouts.app', ['class' => 'bg-default'])  
-        @break
-    @default
-    @extends('layouts.app', ['class' => 'bg-default'])
-@endswitch --}}
+
 @section('content')
     <div class="header bg-gradient-primary py-7 py-lg-8">
         <div class="container">
