@@ -42,29 +42,18 @@
             </a>
             <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
                 <div class=" dropdown-header noti-title">
-                    <h6 class="text-overflow m-0">Welcome!</h6>
+                    <h6 class="text-overflow m-0">{{ __('Welcome!') }}</h6>
                 </div>
-                <a href=href="{{ route('profile.edit') }}" class="dropdown-item">
+                <a href="{{ route('profile.edit') }}" class="dropdown-item">
                     <i class="ni ni-single-02"></i>
-                    <span>My profile</span>
+                    <span>{{ __('My profile') }}</span>
                 </a>
-                <a href="#" class="dropdown-item">
-                    <i class="ni ni-settings-gear-65"></i>
-                    <span>Settings</span>
-                </a>
-                <a href="#" class="dropdown-item">
-                    <i class="ni ni-calendar-grid-58"></i>
-                    <span>Activity</span>
-                </a>
-                <a href="#" class="dropdown-item">
-                    <i class="ni ni-support-16"></i>
-                    <span>Support</span>
-                </a>
+          
                 <div class="dropdown-divider"></div>
                 <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                     <i class="ni ni-user-run"></i>
-                    <span>Logout</span>
+                    <span>{{ __('Logout') }}</span>
                 </a>
             </div>
         </li>
@@ -129,11 +118,11 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <i class="ni ni-planet text-blue"></i> Icons
+                    <i class="ni ni-planet text-blue"></i> Edit
                 </a>
            
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('admin.register') }}">
                     <i class="ni ni-circle-08 text-pink"></i> Register
                 </a>
             </li>
@@ -176,29 +165,18 @@
             </a>
             <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
                 <div class=" dropdown-header noti-title">
-                    <h6 class="text-overflow m-0">Welcome!</h6>
+                    <h6 class="text-overflow m-0">{{ __('Welcome!') }}</h6>
                 </div>
                 <a href="{{ route('profile.edit') }}" class="dropdown-item">
                     <i class="ni ni-single-02"></i>
-                    <span>My profile</span>
+                    <span>{{ __('My profile') }}</span>
                 </a>
-                <a href="#" class="dropdown-item">
-                    <i class="ni ni-settings-gear-65"></i>
-                    <span>Settings</span>
-                </a>
-                <a href="#" class="dropdown-item">
-                    <i class="ni ni-calendar-grid-58"></i>
-                    <span>Activity</span>
-                </a>
-                <a href="#" class="dropdown-item">
-                    <i class="ni ni-support-16"></i>
-                    <span>Support</span>
-                </a>
+          
                 <div class="dropdown-divider"></div>
                 <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                     <i class="ni ni-user-run"></i>
-                    <span>Logout</span>
+                    <span>{{ __('Logout') }}</span>
                 </a>
             </div>
         </li>
@@ -256,15 +234,9 @@
                                     </td>
                                     <td>{{ $user->created_at }}</td>
                                     <td class="text-right">
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                               <a class="dropdown-item" href="/admin/{{ $user->id }}/edit">Edit</a>
-                                               <a class="dropdown-item btn btn-danger" href="/admin/{{ $user->id }}/deleteadmin">delete</a>
-                                            </div>
-                                        </div>
+                                        <a class="btn btn-danger" href="/admin/{{ $user->id }}/edit">Edit</a>
+                                        <a class="btn btn-danger" href="/admin/{{ $user->id }}/deleteadmin">delete</a>
+                                     
                                     </td>
                                 </tr>
                                 @endforeach

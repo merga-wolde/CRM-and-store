@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\User;
 use App\Category;
+use App\Checkout;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Paginator;
@@ -171,6 +172,38 @@ class ProductController extends Controller
         $delete -> delete();
        if($delete){
         return redirect('client/displayproducts')->with('success', 'product deleted successfully');
+    }
+    else{
+        return redirect()->back()->with('error', 'something went wrong');
+    }
+        
+    }
+
+    public function order()
+    {
+        //$products = DB::table('products')->get();
+        $orders = DB::table('checkouts')->paginate(5);       
+
+        return view('client.order', compact('orders'));
+    }
+
+    public function approve($id)
+    {
+        //$order = Checkout::find($id);
+        $order = [
+            'order_status'=> 1
+        ];
+        Checkout::where('id', $id)->update($order);
+        return redirect('client/order')->with('success', 'order addedd succesfully');
+        //return view("client.order");
+    }
+   
+    public function delete($id)
+    {
+        $delete = Checkout::find($id);
+        $delete -> delete();
+       if($delete){
+        return redirect('client/order')->with('success', 'product deleted successfully');
     }
     else{
         return redirect()->back()->with('error', 'something went wrong');

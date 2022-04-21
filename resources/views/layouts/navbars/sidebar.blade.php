@@ -98,13 +98,12 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Icons') }}
+                        <i class="ni ni-planet text-blue"></i> Edit
                     </a>
-                </li>
-          
+               
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Register') }}
+                    <a class="nav-link" href="{{ route('admin.register') }}">
+                        <i class="ni ni-circle-08 text-pink"></i> Register
                     </a>
                 </li>
            

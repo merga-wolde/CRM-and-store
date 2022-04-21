@@ -128,6 +128,11 @@
                     </a>
                 </li>
                 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('client.order') }}">
+                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Display order') }}
+                    </a>
+                </li>
                
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('client.index') }}">

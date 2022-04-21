@@ -80,12 +80,15 @@
                             </div>
                         </div> --}}
                         @if (count($category))
-                        @foreach ($category as $item)
-                        <form action="{{ route('client.showcategory') }}" method="post"></form>
-                        @csrf
-                        <input type="hidden" name="category" value="{{ $item-> category }}">
-                        <button type="submit" class="nav-item nav-link">{{ $item-> category}}</button>
-                        @endforeach
+                            @foreach ($category as $item)
+                            <div  class="row border-top px-xl-5">
+                            <form role="form" action="{{ route('client.showcategory') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="category" value="{{ $item-> category }}">
+                                <button  style="width: 100%; height:40px" type="submit" class="btn btn-sm text-dark p-0 nav-item nav-link">{{ $item-> category}}</button>
+                            </form>
+                            </div>
+                            @endforeach
                     
                     @endif
                         
@@ -197,6 +200,7 @@
                                             </button>
                                         </div>
                                     </div>
+                                    <br>
                                     <button type="submit" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</button>
                             </form>
                             </div>
@@ -220,9 +224,33 @@
         <div class="row px-xl-5 pt-5">
             <a href="" class="text-decoration-none">
                 <h2 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">&copy;{{ auth()->user()->name }}</span>Store</h2>
-            </a>
+            </a><br>
             
+            <div class="col-lg-8 col-md-12">
+            
+                <div class="row">
+                    <div class="col-md-4 mb-5">
+                        <img style=" width: 200px; height: 200px; border-radius: 50%;"  class="form-logo" src="{{ asset('storage/images/'.auth()->user()->logo) }}" alt="Store Logo">
+                    </div>
+                <div class="col-md-4 mb-5">
+                    <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                        <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
+                        <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
+                        
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <h5 class="font-weight-bold text-dark mb-4">Quick Link</h5>
+                    <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a><br>
+                    <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Checkout</a><br>
+                    <a class="text-dark" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                </div>
+            </div>
         </div>
+        </div>
+        
       
     </div>
     <!-- Footer End -->

@@ -79,7 +79,7 @@ class FrontController extends Controller
                 $checkout->country = $request->input('country');
                 $checkout->city = $request->input('city');
                 $checkout->zip = $request->input('zip');
-                $checkout->pay_method = $request->input('city');
+                $checkout->pay_method = $request->input('payement');
                 $checkout->product_name = $prod_name;
                 $checkout->quantity = $quantity;
                 $checkout->total_money = $prod_price; 
@@ -106,13 +106,13 @@ class FrontController extends Controller
      */
     public function show(Request $request)
     {
-        $product = DB::table('products')->where('category', $request->input(category))->get();
+        $product = DB::table('products')->where('product_category', $request->input('category'))->get();
         $category = DB::table('categories')->where('store_id', auth()->user()->id)->get(); 
         $products = [
             'product'=>$product,
             'category'=> $category,
         ];
-         return view('client.index')->with($products);
+         return view('client.showcategory')->with($products);
     }
 
     /**

@@ -81,5 +81,7 @@ Route::group(['prefix'=>'client','middleware' => ['isClient','auth', 'PreventBac
 	Route::get('/checkout', [FrontController::class, 'checkout'])->name('client.checkout');
 	Route::post('/addpayement', [FrontController::class, 'store'])->name('client.addpayement');
 	Route::post('/showcategory', [FrontController::class, 'show'])->name('client.showcategory');
-
+	Route::get('/order', [ProductController::class, 'order'])->name('client.order');
+	Route::get('/{id}/Approveorder', [ProductController::class, 'approve']);
+	Route::get('/{id}/deleteorder', [ProductController::class, 'delete']);
 });

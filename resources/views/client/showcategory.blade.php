@@ -81,10 +81,13 @@
                         </div> --}}
                         @if (count($category))
                         @foreach ($category as $item)
-                        <form action="{{ route('client.showcategory') }}" method="post"></form>
-                        @csrf
-                        <input type="hidden" name="category" value="{{ $item-> category }}">
-                        <button type="submit" class="nav-item nav-link">{{ $item-> category}}</button>
+                        <div  class="row border-top px-xl-5">
+                            <form role="form" action="{{ route('client.showcategory') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="category" value="{{ $item-> category }}">
+                                <button  style="width: 100%; height:40px" type="submit" class="btn btn-sm text-dark p-0 nav-item nav-link">{{ $item-> category}}</button>
+                            </form>
+                            </div>
                         @endforeach
                     
                     @endif
