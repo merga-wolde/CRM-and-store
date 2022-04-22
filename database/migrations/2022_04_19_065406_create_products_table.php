@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->boolean('product_active');
             $table->float('product_price_per_unit');
             $table->integer('product_quantity');
+            $table->integer('store_id');
 
 
             $table->timestamps();
@@ -35,6 +36,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('products');
+        Schema::dropIfExists('products');
     }
 }
