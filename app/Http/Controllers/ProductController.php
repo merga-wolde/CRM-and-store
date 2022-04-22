@@ -58,12 +58,14 @@ class ProductController extends Controller
         $products = new Product;
         $filepath = $request->file('product_image')->store('public/images');
         if ($filepath) {
+            $path = explode('/',$filepath);
+            $file = end($path);
             $products->product_name = $request->input('product_name');
             $products->product_description = $request->input('product_description');
             $products->product_quantity = $request->input('product_quantity');
             $products->product_price_per_unit = $request->input('product_price_per_unit');
             $products->product_category = $request->input('product_category');
-            $products->product_image = $filepath;
+            $products->product_image = $file;
             $products->product_active = 1;
             $products->store_id = auth()->user()->id; 
             
