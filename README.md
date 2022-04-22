@@ -1,4 +1,10 @@
 <p align="center">Store CRM</p>
+<h3>instruction for login</h3>
+<h4>for client<h4>
+<p>on the wel come  page client can register and then login with his credentials</p>
+
+<h4>for Admin<h4>
+<p>you could get the informations in the userstableseeder by running it</p>
 
 <p align="center">This project have the following parts
 <ul>
